@@ -4,72 +4,74 @@ import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Image, Dimensions
 import { SafeAreaView } from "react-native-safe-area-context";
 import { IconSymbol } from "@/components/IconSymbol";
 import { colors, commonStyles } from "@/styles/commonStyles";
+import { useLanguage } from "@/contexts/LanguageContext";
 import Animated, { FadeInDown } from "react-native-reanimated";
 
 const { width } = Dimensions.get('window');
 
 interface Product {
   id: string;
-  name: string;
+  nameKey: string;
   price: number;
   image: string;
   category: string;
 }
 
 export default function StoreScreen() {
+  const { t } = useLanguage();
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
 
   const products: Product[] = [
     {
       id: '1',
-      name: 'f3dRaL Hoodie',
+      nameKey: 'hoodie',
       price: 65,
-      image: 'https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=400',
+      image: 'https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=400&q=80',
       category: 'apparel',
     },
     {
       id: '2',
-      name: 'Logo T-Shirt',
+      nameKey: 'tshirt',
       price: 35,
-      image: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400',
+      image: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&q=80',
       category: 'apparel',
     },
     {
       id: '3',
-      name: 'Album Poster',
+      nameKey: 'poster',
       price: 25,
-      image: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=400',
+      image: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=400&q=80',
       category: 'prints',
     },
     {
       id: '4',
-      name: 'Snapback Hat',
+      nameKey: 'hat',
       price: 30,
-      image: 'https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=400',
+      image: 'https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=400&q=80',
       category: 'accessories',
     },
     {
       id: '5',
-      name: 'Limited Edition Vinyl',
+      nameKey: 'vinyl',
       price: 45,
-      image: 'https://images.unsplash.com/photo-1603048588665-791ca8aea617?w=400',
+      image: 'https://images.unsplash.com/photo-1603048588665-791ca8aea617?w=400&q=80',
       category: 'music',
     },
     {
       id: '6',
-      name: 'Tour Poster',
+      nameKey: 'tourPoster',
       price: 20,
-      image: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400',
+      image: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&q=80',
       category: 'prints',
     },
   ];
 
   const categories = [
-    { id: 'all', label: 'All' },
-    { id: 'apparel', label: 'Apparel' },
-    { id: 'prints', label: 'Prints' },
-    { id: 'accessories', label: 'Accessories' },
-    { id: 'music', label: 'Music' },
+    { id: 'all', label: t('store.all') },
+    { id: 'apparel', label: t('store.apparel') },
+    { id: 'prints', label: t('store.prints') },
+    { id: 'accessories', label: t('store.accessories') },
+    { id: 'music', label: t('store.musicCategory') },
   ];
 
   const filteredProducts = selectedCategory === 'all' 
@@ -79,7 +81,7 @@ export default function StoreScreen() {
   return (
     <SafeAreaView style={commonStyles.container} edges={['top']}>
       <View style={styles.header}>
-        <Text style={styles.headerTitle}>Merch Store</Text>
+        <Text style={styles.headerTitle}>{t('store.title')}</Text>
         <TouchableOpacity style={styles.cartButton}>
           <IconSymbol
             ios_icon_name="cart"
@@ -137,7 +139,7 @@ export default function StoreScreen() {
             color={colors.secondary}
           />
           <Text style={styles.infoBannerText}>
-            Powered by Printful • Worldwide Shipping
+            {t('store.infoBanner')}
           </Text>
         </View>
 
@@ -150,7 +152,7 @@ export default function StoreScreen() {
                   <Image source={{ uri: product.image }} style={styles.productImage} />
                   <View style={styles.productInfo}>
                     <Text style={styles.productName} numberOfLines={2}>
-                      {product.name}
+                      {t(`store.products.${product.nameKey}`)}
                     </Text>
                     <Text style={styles.productPrice}>${product.price}</Text>
                   </View>
@@ -170,16 +172,15 @@ export default function StoreScreen() {
 
         {/* Integration Info */}
         <View style={styles.integrationInfo}>
-          <Text style={styles.integrationTitle}>Store Integration</Text>
+          <Text style={styles.integrationTitle}>{t('store.integrationTitle')}</Text>
           <Text style={styles.integrationText}>
-            This store is ready for Printful integration. Connect your Printful account 
-            to enable automatic order fulfillment and real-time inventory sync.
+            {t('store.integrationText')}
           </Text>
           <TouchableOpacity style={styles.setupButton}>
-            <Text style={styles.setupButtonText}>Setup Printful</Text>
+            <Text style={styles.setupButtonText}>{t('store.setupPrintful')}</Text>
           </TouchableOpacity>
           <Text style={styles.integrationNote}>
-            Note: Payment processing requires Stripe or PayPal integration
+            {t('store.integrationNote')}
           </Text>
         </View>
 

@@ -5,28 +5,27 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { useRouter } from "expo-router";
 import { IconSymbol } from "@/components/IconSymbol";
 import { colors, commonStyles } from "@/styles/commonStyles";
+import { useLanguage } from "@/contexts/LanguageContext";
 import Animated, { FadeInDown } from "react-native-reanimated";
 
 export default function CollaborateScreen() {
   const router = useRouter();
-  const [selectedType, setSelectedType] = useState<string>('');
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    company: '',
-    message: '',
-  });
+  const { t } = useLanguage();
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
+  const [selectedType, setSelectedType] = useState('');
 
   const collaborationTypes = [
-    { id: 'producer', label: 'Producer', icon: 'music-note' },
-    { id: 'brand', label: 'Brand', icon: 'business' },
-    { id: 'media', label: 'Media', icon: 'newspaper' },
-    { id: 'artist', label: 'Artist', icon: 'person' },
+    { id: 'producer', label: t('collaborate.types.producer'), icon: 'music-note' },
+    { id: 'brand', label: t('collaborate.types.brand'), icon: 'business' },
+    { id: 'media', label: t('collaborate.types.media'), icon: 'newspaper' },
+    { id: 'artist', label: t('collaborate.types.artist'), icon: 'person' },
   ];
 
   const handleSubmit = () => {
-    console.log('Form submitted:', { ...formData, type: selectedType });
-    // Here you would integrate with your email service or backend
+    console.log('Collaboration form submitted:', { name, email, message, selectedType });
+    // Here you would typically send this to your backend or email service
   };
 
   return (
@@ -40,7 +39,7 @@ export default function CollaborateScreen() {
             color={colors.text}
           />
         </TouchableOpacity>
-        <Text style={styles.headerTitle}>Collaborate</Text>
+        <Text style={styles.headerTitle}>{t('collaborate.title')}</Text>
         <View style={styles.headerSpacer} />
       </View>
 
@@ -49,20 +48,15 @@ export default function CollaborateScreen() {
         contentContainerStyle={styles.scrollContent}
         showsVerticalScrollIndicator={false}
       >
-        {/* Intro */}
-        <Animated.View entering={FadeInDown.delay(100).duration(600)}>
-          <View style={styles.introCard}>
-            <Text style={styles.introTitle}>Let&apos;s Create Together</Text>
-            <Text style={styles.introText}>
-              Interested in working with f3dRaL? Whether you&apos;re a producer, brand, 
-              media outlet, or fellow artist, let&apos;s explore collaboration opportunities.
-            </Text>
-          </View>
+        {/* Header Section */}
+        <Animated.View entering={FadeInDown.delay(100).duration(600)} style={styles.headerSection}>
+          <Text style={styles.title}>{t('collaborate.subtitle')}</Text>
+          <Text style={styles.description}>{t('collaborate.description')}</Text>
         </Animated.View>
 
-        {/* Collaboration Type */}
+        {/* Collaboration Types */}
         <Animated.View entering={FadeInDown.delay(200).duration(600)} style={styles.section}>
-          <Text style={styles.sectionTitle}>I&apos;m a...</Text>
+          <Text style={styles.sectionTitle}>{t('collaborate.type')}</Text>
           <View style={styles.typesGrid}>
             {collaborationTypes.map((type, index) => (
               <React.Fragment key={index}>
@@ -78,12 +72,12 @@ export default function CollaborateScreen() {
                     ios_icon_name={type.icon}
                     android_material_icon_name={type.icon}
                     size={28}
-                    color={selectedType === type.id ? colors.text : colors.textSecondary}
+                    color={selectedType === type.id ? colors.text : colors.primary}
                   />
                   <Text
                     style={[
-                      styles.typeLabel,
-                      selectedType === type.id && styles.typeLabelActive,
+                      styles.typeText,
+                      selectedType === type.id && styles.typeTextActive,
                     ]}
                   >
                     {type.label}
@@ -96,97 +90,60 @@ export default function CollaborateScreen() {
 
         {/* Form */}
         <Animated.View entering={FadeInDown.delay(300).duration(600)} style={styles.section}>
-          <Text style={styles.sectionTitle}>Your Information</Text>
+          <Text style={styles.sectionTitle}>{t('collaborate.formTitle')}</Text>
           
-          <View style={styles.inputContainer}>
-            <Text style={styles.inputLabel}>Name *</Text>
-            <TextInput
-              style={styles.input}
-              placeholder="Your name"
-              placeholderTextColor={colors.textSecondary}
-              value={formData.name}
-              onChangeText={(text) => setFormData({ ...formData, name: text })}
-            />
-          </View>
+          <View style={styles.formCard}>
+            <View style={styles.inputGroup}>
+              <Text style={styles.inputLabel}>{t('collaborate.name')}</Text>
+              <TextInput
+                style={styles.input}
+                placeholder={t('collaborate.placeholders.name')}
+                placeholderTextColor={colors.textSecondary}
+                value={name}
+                onChangeText={setName}
+              />
+            </View>
 
-          <View style={styles.inputContainer}>
-            <Text style={styles.inputLabel}>Email *</Text>
-            <TextInput
-              style={styles.input}
-              placeholder="your@email.com"
-              placeholderTextColor={colors.textSecondary}
-              keyboardType="email-address"
-              autoCapitalize="none"
-              value={formData.email}
-              onChangeText={(text) => setFormData({ ...formData, email: text })}
-            />
-          </View>
+            <View style={styles.inputGroup}>
+              <Text style={styles.inputLabel}>{t('collaborate.email')}</Text>
+              <TextInput
+                style={styles.input}
+                placeholder={t('collaborate.placeholders.email')}
+                placeholderTextColor={colors.textSecondary}
+                value={email}
+                onChangeText={setEmail}
+                keyboardType="email-address"
+                autoCapitalize="none"
+              />
+            </View>
 
-          <View style={styles.inputContainer}>
-            <Text style={styles.inputLabel}>Company / Project</Text>
-            <TextInput
-              style={styles.input}
-              placeholder="Optional"
-              placeholderTextColor={colors.textSecondary}
-              value={formData.company}
-              onChangeText={(text) => setFormData({ ...formData, company: text })}
-            />
-          </View>
+            <View style={styles.inputGroup}>
+              <Text style={styles.inputLabel}>{t('collaborate.message')}</Text>
+              <TextInput
+                style={[styles.input, styles.textArea]}
+                placeholder={t('collaborate.placeholders.message')}
+                placeholderTextColor={colors.textSecondary}
+                value={message}
+                onChangeText={setMessage}
+                multiline
+                numberOfLines={6}
+                textAlignVertical="top"
+              />
+            </View>
 
-          <View style={styles.inputContainer}>
-            <Text style={styles.inputLabel}>Message *</Text>
-            <TextInput
-              style={[styles.input, styles.textArea]}
-              placeholder="Tell us about your collaboration idea..."
-              placeholderTextColor={colors.textSecondary}
-              multiline
-              numberOfLines={6}
-              textAlignVertical="top"
-              value={formData.message}
-              onChangeText={(text) => setFormData({ ...formData, message: text })}
-            />
-          </View>
-        </Animated.View>
+            <TouchableOpacity style={styles.fileButton} activeOpacity={0.8}>
+              <IconSymbol
+                ios_icon_name="paperclip"
+                android_material_icon_name="attach-file"
+                size={20}
+                color={colors.primary}
+              />
+              <Text style={styles.fileButtonText}>{t('collaborate.attachFile')}</Text>
+            </TouchableOpacity>
 
-        {/* File Upload Placeholder */}
-        <Animated.View entering={FadeInDown.delay(400).duration(600)} style={styles.section}>
-          <Text style={styles.sectionTitle}>Attachments (Optional)</Text>
-          <TouchableOpacity style={styles.uploadButton} activeOpacity={0.8}>
-            <IconSymbol
-              ios_icon_name="paperclip"
-              android_material_icon_name="attach-file"
-              size={24}
-              color={colors.primary}
-            />
-            <Text style={styles.uploadText}>Attach Files</Text>
-            <Text style={styles.uploadSubtext}>Beats, proposals, media kits, etc.</Text>
-          </TouchableOpacity>
-        </Animated.View>
-
-        {/* Submit Button */}
-        <Animated.View entering={FadeInDown.delay(500).duration(600)}>
-          <TouchableOpacity
-            style={styles.submitButton}
-            onPress={handleSubmit}
-            activeOpacity={0.8}
-          >
-            <Text style={styles.submitButtonText}>Send Message</Text>
-            <IconSymbol
-              ios_icon_name="paperplane.fill"
-              android_material_icon_name="send"
-              size={20}
-              color={colors.text}
-            />
-          </TouchableOpacity>
-        </Animated.View>
-
-        {/* Contact Info */}
-        <Animated.View entering={FadeInDown.delay(600).duration(600)}>
-          <View style={styles.contactInfo}>
-            <Text style={styles.contactInfoText}>
-              Or reach out directly at{' '}
-              <Text style={styles.contactEmail}>collab@f3dral.com</Text>
-            </Text>
+            <TouchableOpacity style={styles.submitButton} onPress={handleSubmit} activeOpacity={0.8}>
+              <Text style={styles.submitButtonText}>{t('collaborate.submit')}</Text>
+            </TouchableOpacity>
           </View>
         </Animated.View>
 
@@ -222,24 +179,19 @@ const styles = StyleSheet.create({
   scrollContent: {
     paddingHorizontal: 20,
   },
-  introCard: {
-    backgroundColor: colors.card,
-    borderRadius: 16,
-    padding: 24,
+  headerSection: {
     marginBottom: 32,
-    borderWidth: 1,
-    borderColor: colors.primary,
   },
-  introTitle: {
-    fontSize: 24,
-    fontWeight: '700',
+  title: {
+    fontSize: 32,
+    fontWeight: '900',
     color: colors.text,
     marginBottom: 12,
   },
-  introText: {
-    fontSize: 15,
+  description: {
+    fontSize: 16,
     color: colors.textSecondary,
-    lineHeight: 22,
+    lineHeight: 24,
   },
   section: {
     marginBottom: 32,
@@ -261,7 +213,7 @@ const styles = StyleSheet.create({
     borderRadius: 16,
     padding: 20,
     alignItems: 'center',
-    gap: 8,
+    gap: 12,
     borderWidth: 1,
     borderColor: colors.highlight,
   },
@@ -269,15 +221,23 @@ const styles = StyleSheet.create({
     backgroundColor: colors.primary,
     borderColor: colors.primary,
   },
-  typeLabel: {
+  typeText: {
     fontSize: 14,
     fontWeight: '600',
     color: colors.textSecondary,
+    textAlign: 'center',
   },
-  typeLabelActive: {
+  typeTextActive: {
     color: colors.text,
   },
-  inputContainer: {
+  formCard: {
+    backgroundColor: colors.card,
+    borderRadius: 16,
+    padding: 20,
+    borderWidth: 1,
+    borderColor: colors.highlight,
+  },
+  inputGroup: {
     marginBottom: 20,
   },
   inputLabel: {
@@ -287,10 +247,10 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   input: {
-    backgroundColor: colors.card,
+    backgroundColor: colors.background,
     borderRadius: 12,
     padding: 16,
-    fontSize: 15,
+    fontSize: 16,
     color: colors.text,
     borderWidth: 1,
     borderColor: colors.highlight,
@@ -299,53 +259,33 @@ const styles = StyleSheet.create({
     height: 120,
     paddingTop: 16,
   },
-  uploadButton: {
-    backgroundColor: colors.card,
-    borderRadius: 16,
-    padding: 24,
-    alignItems: 'center',
-    borderWidth: 2,
-    borderColor: colors.highlight,
-    borderStyle: 'dashed',
-  },
-  uploadText: {
-    fontSize: 16,
-    fontWeight: '600',
-    color: colors.primary,
-    marginTop: 12,
-  },
-  uploadSubtext: {
-    fontSize: 12,
-    color: colors.textSecondary,
-    marginTop: 4,
-  },
-  submitButton: {
+  fileButton: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    gap: 12,
+    gap: 8,
+    backgroundColor: colors.background,
+    paddingVertical: 14,
+    borderRadius: 12,
+    marginBottom: 16,
+    borderWidth: 1,
+    borderColor: colors.primary,
+  },
+  fileButtonText: {
+    fontSize: 14,
+    fontWeight: '600',
+    color: colors.primary,
+  },
+  submitButton: {
     backgroundColor: colors.primary,
     paddingVertical: 16,
-    borderRadius: 16,
-    marginBottom: 20,
+    borderRadius: 12,
+    alignItems: 'center',
   },
   submitButtonText: {
     fontSize: 16,
     fontWeight: '700',
     color: colors.text,
-  },
-  contactInfo: {
-    alignItems: 'center',
-    paddingVertical: 20,
-  },
-  contactInfoText: {
-    fontSize: 14,
-    color: colors.textSecondary,
-    textAlign: 'center',
-  },
-  contactEmail: {
-    color: colors.primary,
-    fontWeight: '600',
   },
   bottomPadding: {
     height: 40,

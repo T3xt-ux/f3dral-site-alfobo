@@ -5,18 +5,21 @@ import { useRouter } from "expo-router";
 import { LinearGradient } from "expo-linear-gradient";
 import { IconSymbol } from "@/components/IconSymbol";
 import { colors, commonStyles } from "@/styles/commonStyles";
+import { useLanguage } from "@/contexts/LanguageContext";
+import LanguageSelector from "@/components/LanguageSelector";
 import Animated, { FadeInDown, FadeIn } from "react-native-reanimated";
 
 const { width, height } = Dimensions.get('window');
 
 export default function HomeScreen() {
   const router = useRouter();
+  const { t } = useLanguage();
 
   const quickLinks = [
-    { title: 'Latest Release', icon: 'album', route: '/(tabs)/music', color: colors.primary },
-    { title: 'Merch Store', icon: 'shopping-bag', route: '/(tabs)/store', color: colors.accent },
-    { title: 'Press Kit', icon: 'description', route: '/presskit', color: colors.secondary },
-    { title: 'Collaborate', icon: 'handshake', route: '/collaborate', color: colors.primary },
+    { title: t('home.latestRelease'), icon: 'album', route: '/(tabs)/music', color: colors.primary },
+    { title: t('home.merchStore'), icon: 'shopping-bag', route: '/(tabs)/store', color: colors.accent },
+    { title: t('home.pressKit'), icon: 'description', route: '/presskit', color: colors.secondary },
+    { title: t('home.collaborate'), icon: 'handshake', route: '/collaborate', color: colors.primary },
   ];
 
   const socialLinks = [
@@ -32,20 +35,23 @@ export default function HomeScreen() {
         contentContainerStyle={styles.scrollContent}
         showsVerticalScrollIndicator={false}
       >
-        {/* Hero Section */}
+        {/* Hero Section with DJ Hands Background */}
         <Animated.View entering={FadeIn.duration(800)} style={styles.heroSection}>
           <ImageBackground
-            source={{ uri: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=800' }}
+            source={{ uri: 'https://images.unsplash.com/photo-1571330735066-03aaa9429d89?w=800&q=80' }}
             style={styles.heroBackground}
             imageStyle={styles.heroImage}
           >
             <LinearGradient
-              colors={['rgba(18, 18, 18, 0.3)', 'rgba(18, 18, 18, 0.95)']}
+              colors={['rgba(18, 18, 18, 0.2)', 'rgba(18, 18, 18, 0.95)']}
               style={styles.heroGradient}
             >
+              <View style={styles.languageSelectorContainer}>
+                <LanguageSelector />
+              </View>
               <View style={styles.heroContent}>
-                <Text style={styles.artistName}>f3dRaL</Text>
-                <Text style={styles.tagline}>Artist • Producer • Visionary</Text>
+                <Text style={styles.artistName}>{t('home.artistName')}</Text>
+                <Text style={styles.tagline}>{t('home.tagline')}</Text>
                 <View style={styles.socialIcons}>
                   {socialLinks.map((social, index) => (
                     <React.Fragment key={index}>
@@ -67,7 +73,7 @@ export default function HomeScreen() {
 
         {/* Quick Links */}
         <View style={styles.quickLinksSection}>
-          <Text style={styles.sectionTitle}>Quick Access</Text>
+          <Text style={styles.sectionTitle}>{t('home.quickAccess')}</Text>
           <View style={styles.quickLinksGrid}>
             {quickLinks.map((link, index) => (
               <React.Fragment key={index}>
@@ -98,7 +104,7 @@ export default function HomeScreen() {
 
         {/* Latest Updates */}
         <View style={styles.updatesSection}>
-          <Text style={styles.sectionTitle}>Latest Updates</Text>
+          <Text style={styles.sectionTitle}>{t('home.latestUpdates')}</Text>
           <Animated.View entering={FadeInDown.delay(400).duration(600)}>
             <TouchableOpacity 
               style={styles.updateCard}
@@ -106,7 +112,7 @@ export default function HomeScreen() {
               activeOpacity={0.9}
             >
               <ImageBackground
-                source={{ uri: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600' }}
+                source={{ uri: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&q=80' }}
                 style={styles.updateImage}
                 imageStyle={styles.updateImageStyle}
               >
@@ -115,9 +121,9 @@ export default function HomeScreen() {
                   style={styles.updateGradient}
                 >
                   <View style={styles.updateContent}>
-                    <Text style={styles.updateTitle}>New Single Out Now</Text>
+                    <Text style={styles.updateTitle}>{t('home.newSingleTitle')}</Text>
                     <Text style={styles.updateDescription}>
-                      Check out the latest release on all streaming platforms
+                      {t('home.newSingleDesc')}
                     </Text>
                   </View>
                 </LinearGradient>
@@ -128,18 +134,17 @@ export default function HomeScreen() {
 
         {/* About Preview */}
         <View style={styles.aboutSection}>
-          <Text style={styles.sectionTitle}>About f3dRaL</Text>
+          <Text style={styles.sectionTitle}>{t('home.aboutPreview')}</Text>
           <Animated.View entering={FadeInDown.delay(500).duration(600)}>
             <View style={styles.aboutCard}>
               <Text style={styles.aboutText}>
-                Pushing boundaries in music and visual art. Creating immersive experiences 
-                that blend sound, technology, and emotion.
+                {t('home.aboutText')}
               </Text>
               <TouchableOpacity
                 style={styles.learnMoreButton}
                 onPress={() => router.push('/about')}
               >
-                <Text style={styles.learnMoreText}>Learn More</Text>
+                <Text style={styles.learnMoreText}>{t('common.learnMore')}</Text>
                 <IconSymbol
                   ios_icon_name="arrow.right"
                   android_material_icon_name="arrow-forward"
@@ -179,7 +184,12 @@ const styles = StyleSheet.create({
   },
   heroGradient: {
     flex: 1,
-    justifyContent: 'flex-end',
+    justifyContent: 'space-between',
+  },
+  languageSelectorContainer: {
+    alignItems: 'flex-end',
+    paddingTop: 16,
+    paddingRight: 20,
   },
   heroContent: {
     padding: 24,
@@ -191,12 +201,18 @@ const styles = StyleSheet.create({
     color: colors.text,
     letterSpacing: 2,
     marginBottom: 8,
+    textShadowColor: 'rgba(0, 0, 0, 0.75)',
+    textShadowOffset: { width: 0, height: 2 },
+    textShadowRadius: 10,
   },
   tagline: {
     fontSize: 16,
     color: colors.textSecondary,
     marginBottom: 20,
     letterSpacing: 1,
+    textShadowColor: 'rgba(0, 0, 0, 0.75)',
+    textShadowOffset: { width: 0, height: 1 },
+    textShadowRadius: 5,
   },
   socialIcons: {
     flexDirection: 'row',

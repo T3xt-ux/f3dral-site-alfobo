@@ -1,0 +1,184 @@
+
+{
+  "common": {
+    "home": "Accueil",
+    "music": "Musique",
+    "store": "Boutique",
+    "more": "Plus",
+    "back": "Retour",
+    "learnMore": "En savoir plus",
+    "downloadAll": "Télécharger le kit de presse complet",
+    "copy": "Copier",
+    "contact": "Contact",
+    "follow": "Suivre",
+    "listenNow": "Écouter maintenant",
+    "connect": "Se connecter"
+  },
+  "home": {
+    "artistName": "f3dRaL",
+    "tagline": "Artiste • Producteur • Visionnaire",
+    "quickAccess": "Accès rapide",
+    "latestUpdates": "Dernières mises à jour",
+    "aboutPreview": "À propos de f3dRaL",
+    "latestRelease": "Dernière sortie",
+    "merchStore": "Boutique de marchandises",
+    "pressKit": "Kit de presse",
+    "collaborate": "Collaborer",
+    "newSingleTitle": "Nouveau single disponible",
+    "newSingleDesc": "Découvrez la dernière sortie sur toutes les plateformes de streaming",
+    "aboutText": "Repousser les limites de la musique et de l'art visuel. Créer des expériences immersives qui mélangent son, technologie et émotion."
+  },
+  "music": {
+    "title": "Musique et visuels",
+    "musicTab": "Musique",
+    "visualsTab": "Visuels",
+    "listenNow": "Écouter maintenant",
+    "releases": "Sorties",
+    "featuredTrack": "Morceau en vedette",
+    "embeddedPlayer": "Lecteur intégré",
+    "playerSubtext": "Connectez-vous à l'API Spotify/SoundCloud pour la lecture en direct",
+    "visualGallery": "Galerie visuelle",
+    "latestVideo": "Dernière vidéo",
+    "videoPlayer": "Lecteur vidéo",
+    "videoSubtext": "Intégrez des vidéos YouTube ou Vimeo ici",
+    "single": "Single",
+    "ep": "EP",
+    "album": "Album"
+  },
+  "store": {
+    "title": "Boutique de marchandises",
+    "all": "Tout",
+    "apparel": "Vêtements",
+    "prints": "Impressions",
+    "accessories": "Accessoires",
+    "musicCategory": "Musique",
+    "infoBanner": "Propulsé par Printful • Livraison mondiale",
+    "integrationTitle": "Intégration de la boutique",
+    "integrationText": "Cette boutique est prête pour l'intégration Printful. Connectez votre compte Printful pour activer l'exécution automatique des commandes et la synchronisation des stocks en temps réel.",
+    "setupPrintful": "Configurer Printful",
+    "integrationNote": "Remarque : Le traitement des paiements nécessite une intégration Stripe ou PayPal",
+    "products": {
+      "hoodie": "Sweat à capuche f3dRaL",
+      "tshirt": "T-shirt logo",
+      "poster": "Affiche d'album",
+      "hat": "Casquette snapback",
+      "vinyl": "Vinyle édition limitée",
+      "tourPoster": "Affiche de tournée"
+    }
+  },
+  "about": {
+    "title": "À propos",
+    "bio": "Biographie",
+    "theStory": "L'histoire",
+    "artisticThemes": "Thèmes artistiques",
+    "highlights": "Points forts",
+    "shortBio": "f3dRaL est un artiste et producteur avant-gardiste créant des expériences sonores immersives qui mélangent production de pointe et émotion brute. Connu pour ses morceaux qui défient les genres et son esthétique visuelle captivante.",
+    "longBio1": "Émergeant de la scène musicale underground, f3dRaL s'est taillé un espace unique où les sons expérimentaux rencontrent l'attrait grand public. Avec une formation en production musicale et en arts visuels, chaque sortie est une expérience multimédia soigneusement élaborée.",
+    "longBio2": "S'inspirant de genres divers incluant l'électronique, le hip-hop et la musique ambient, le son de f3dRaL évolue constamment tout en maintenant une signature sonore distinctive. Le travail de l'artiste a été présenté sur les principales plateformes de streaming et a attiré l'attention des critiques et des fans du monde entier.",
+    "longBio3": "Au-delà de la musique, f3dRaL s'engage à repousser les limites créatives à travers des collaborations avec des artistes visuels, des créateurs de mode et d'autres musiciens, créant une vision artistique holistique qui s'étend bien au-delà du studio.",
+    "themes": {
+      "innovation": "Innovation",
+      "emotion": "Émotion",
+      "technology": "Technologie",
+      "authenticity": "Authenticité"
+    },
+    "socialFeeds": {
+      "tiktokDesc": "Derniers clips, coulisses et contenu exclusif",
+      "instagramDesc": "Art visuel, photographie et projets créatifs"
+    },
+    "stats": {
+      "listeners": "Auditeurs mensuels",
+      "followers": "Abonnés sociaux",
+      "releases": "Sorties",
+      "collaborations": "Collaborations"
+    }
+  },
+  "presskit": {
+    "title": "Kit de presse",
+    "shortBio": "Biographie courte",
+    "longBio": "Biographie longue",
+    "pressPhotos": "Photos de presse",
+    "brandColors": "Couleurs de la marque",
+    "pressQuotes": "Citations de presse",
+    "mediaContact": "Contact média",
+    "socialMedia": "Réseaux sociaux",
+    "quote": "f3dRaL redéfinit les limites de la production musicale moderne avec une approche innovante qui captive les publics du monde entier.",
+    "quoteSource": "- Magazine de musique",
+    "colors": {
+      "primary": "Primaire",
+      "secondary": "Secondaire",
+      "accent": "Accent",
+      "background": "Arrière-plan"
+    }
+  },
+  "collaborate": {
+    "title": "Collaborer",
+    "subtitle": "Créons ensemble",
+    "description": "Intéressé à travailler avec f3dRaL ? Que vous soyez producteur, marque, média ou artiste, explorons les possibilités créatives.",
+    "formTitle": "Formulaire de collaboration",
+    "name": "Nom",
+    "email": "Email",
+    "type": "Type de collaboration",
+    "message": "Message",
+    "attachFile": "Joindre un fichier (optionnel)",
+    "submit": "Soumettre la proposition",
+    "types": {
+      "producer": "Production musicale",
+      "brand": "Partenariat de marque",
+      "media": "Média / Presse",
+      "artist": "Collaboration artistique"
+    },
+    "placeholders": {
+      "name": "Votre nom",
+      "email": "votre@email.com",
+      "message": "Parlez-nous de votre idée de collaboration..."
+    }
+  },
+  "fanhub": {
+    "title": "Hub des fans",
+    "joinCommunity": "Rejoignez la communauté",
+    "description": "Restez connecté avec des mises à jour exclusives, un accès anticipé aux nouvelles sorties et du contenu spécial réservé aux fans.",
+    "emailSignup": "Inscription par email",
+    "emailPlaceholder": "votre@email.com",
+    "subscribe": "S'abonner",
+    "benefits": "Avantages des membres",
+    "benefitsList": {
+      "earlyAccess": "Accès anticipé aux nouvelles sorties",
+      "exclusiveContent": "Contenu exclusif des coulisses",
+      "specialMerch": "Réductions spéciales sur les marchandises",
+      "directUpdates": "Mises à jour directes de f3dRaL"
+    },
+    "freebies": "Cadeaux numériques",
+    "freebiesDesc": "Téléchargez des fonds d'écran exclusifs, des stems et plus encore",
+    "downloadWallpapers": "Télécharger les fonds d'écran",
+    "downloadStems": "Télécharger les stems"
+  },
+  "news": {
+    "title": "Actualités et mises à jour",
+    "latest": "Dernières actualités",
+    "filter": {
+      "all": "Tout",
+      "releases": "Sorties",
+      "shows": "Spectacles",
+      "merch": "Marchandises",
+      "collabs": "Collaborations"
+    }
+  },
+  "more": {
+    "title": "Plus",
+    "about": "À propos",
+    "aboutDesc": "En savoir plus sur f3dRaL",
+    "pressKit": "Kit de presse",
+    "pressKitDesc": "Télécharger les documents de presse",
+    "collaborate": "Collaborer",
+    "collaborateDesc": "Travailler avec f3dRaL",
+    "fanHub": "Hub des fans",
+    "fanHubDesc": "Rejoindre la communauté",
+    "news": "Actualités",
+    "newsDesc": "Dernières mises à jour",
+    "contactTitle": "Contact",
+    "contactText": "Pour les demandes commerciales, les collaborations ou les demandes de presse :",
+    "footer": "f3dRaL © 2024",
+    "footerSubtext": "Tous droits réservés"
+  }
+}

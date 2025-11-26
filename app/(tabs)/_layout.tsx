@@ -2,32 +2,35 @@
 import React from 'react';
 import { Stack } from 'expo-router';
 import FloatingTabBar, { TabBarItem } from '@/components/FloatingTabBar';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function TabLayout() {
+  const { t } = useLanguage();
+
   const tabs: TabBarItem[] = [
     {
       name: '(home)',
       route: '/(tabs)/(home)/',
       icon: 'home',
-      label: 'Home',
+      label: t('common.home'),
     },
     {
       name: 'music',
       route: '/(tabs)/music',
       icon: 'music-note',
-      label: 'Music',
+      label: t('common.music'),
     },
     {
       name: 'store',
       route: '/(tabs)/store',
       icon: 'shopping-bag',
-      label: 'Store',
+      label: t('common.store'),
     },
     {
       name: 'more',
       route: '/(tabs)/more',
       icon: 'menu',
-      label: 'More',
+      label: t('common.more'),
     },
   ];
 

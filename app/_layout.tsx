@@ -16,6 +16,7 @@ import {
 } from "@react-navigation/native";
 import { StatusBar } from "expo-status-bar";
 import { WidgetProvider } from "@/contexts/WidgetContext";
+import { LanguageProvider } from "@/contexts/LanguageContext";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -68,49 +69,51 @@ export default function RootLayout() {
     <>
       <StatusBar style="light" animated />
       <ThemeProvider value={CustomDarkTheme}>
-        <WidgetProvider>
-          <GestureHandlerRootView>
-            <Stack>
-              <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-              <Stack.Screen
-                name="about"
-                options={{
-                  presentation: "card",
-                  headerShown: false,
-                }}
-              />
-              <Stack.Screen
-                name="presskit"
-                options={{
-                  presentation: "card",
-                  headerShown: false,
-                }}
-              />
-              <Stack.Screen
-                name="collaborate"
-                options={{
-                  presentation: "card",
-                  headerShown: false,
-                }}
-              />
-              <Stack.Screen
-                name="fanhub"
-                options={{
-                  presentation: "card",
-                  headerShown: false,
-                }}
-              />
-              <Stack.Screen
-                name="news"
-                options={{
-                  presentation: "card",
-                  headerShown: false,
-                }}
-              />
-            </Stack>
-            <SystemBars style={"light"} />
-          </GestureHandlerRootView>
-        </WidgetProvider>
+        <LanguageProvider>
+          <WidgetProvider>
+            <GestureHandlerRootView>
+              <Stack>
+                <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+                <Stack.Screen
+                  name="about"
+                  options={{
+                    presentation: "card",
+                    headerShown: false,
+                  }}
+                />
+                <Stack.Screen
+                  name="presskit"
+                  options={{
+                    presentation: "card",
+                    headerShown: false,
+                  }}
+                />
+                <Stack.Screen
+                  name="collaborate"
+                  options={{
+                    presentation: "card",
+                    headerShown: false,
+                  }}
+                />
+                <Stack.Screen
+                  name="fanhub"
+                  options={{
+                    presentation: "card",
+                    headerShown: false,
+                  }}
+                />
+                <Stack.Screen
+                  name="news"
+                  options={{
+                    presentation: "card",
+                    headerShown: false,
+                  }}
+                />
+              </Stack>
+              <SystemBars style={"light"} />
+            </GestureHandlerRootView>
+          </WidgetProvider>
+        </LanguageProvider>
       </ThemeProvider>
     </>
   );
