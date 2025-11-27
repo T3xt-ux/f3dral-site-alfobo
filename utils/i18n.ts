@@ -18,4 +18,7 @@ i18n.locale = deviceLanguage;
 i18n.enableFallback = true;
 i18n.defaultLocale = 'en';
 
+// Export translation function for convenience
+export const t = (key: string, options?: any) => i18n.t(key, options);
+
 export default i18n;
