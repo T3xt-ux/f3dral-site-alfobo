@@ -68,30 +68,36 @@
   },
   "about": {
     "title": "About",
-    "bio": "Bio",
-    "theStory": "The Story",
-    "artisticThemes": "Artistic Themes",
-    "highlights": "Highlights",
-    "shortBio": "f3dRaL is a boundary-pushing artist and producer creating immersive sonic experiences that blend cutting-edge production with raw emotion. Known for genre-defying tracks and captivating visual aesthetics.",
-    "longBio1": "Emerging from the underground music scene, f3dRaL has carved out a unique space where experimental sounds meet mainstream appeal. With a background in both music production and visual arts, every release is a carefully crafted multimedia experience.",
-    "longBio2": "Drawing inspiration from diverse genres including electronic, hip-hop, and ambient music, f3dRaL's sound is constantly evolving while maintaining a distinctive sonic signature. The artist's work has been featured across major streaming platforms and has garnered attention from both critics and fans worldwide.",
-    "longBio3": "Beyond music, f3dRaL is committed to pushing creative boundaries through collaborations with visual artists, fashion designers, and fellow musicians, creating a holistic artistic vision that extends far beyond the studio.",
+    "tagline": "Experimental Hip Hop Artist • Lyricist • Creative Director",
+    "location": "SpandiLand",
+    "originTitle": "The Beginning",
+    "origin": "f3dRaL Spandexx TeXTfuLL a.k.a. f3d is an experimental hip hop artist based in SpandiLand. His love for music developed at a very tender age, and he chose rap music as his compartment of expression, writing poems was his daily activity. He was deeply fascinated by lyrical songs, so he started to freestyle.",
+    "journeyTitle": "The Journey",
+    "journey": "f3dRaL explores music through networking, music production (with talented beat-makers who cross genres), event management, and artistic direction as a lyricist. He has worked with several creative and cultural entities on different aspects of art, such as artistic direction, promotion, networking, and branding for over a decade.",
+    "visionTitle": "The Vision",
+    "vision": "f3dRaL's state of mind ripples through music production accompanied by aesthetic visuals, Avant-Garde ideas, augmented reality and virtual reality. A trendsetter with infinite bandwidths of creativity.",
+    "pillarsTitle": "Creative Pillars",
+    "pillars": {
+      "production": "Music Production",
+      "networking": "Networking",
+      "events": "Event Management",
+      "direction": "Artistic Direction"
+    },
+    "themesTitle": "Artistic Elements",
     "themes": {
-      "innovation": "Innovation",
-      "emotion": "Emotion",
-      "technology": "Technology",
-      "authenticity": "Authenticity"
+      "aestheticVisuals": "Aesthetic Visuals",
+      "avantGarde": "Avant-Garde Ideas",
+      "augmentedReality": "Augmented Reality",
+      "virtualReality": "Virtual Reality",
+      "trendsetter": "Trendsetter",
+      "infiniteCreativity": "Infinite Creativity"
     },
     "socialFeeds": {
       "tiktokDesc": "Latest clips, behind-the-scenes, and exclusive content",
       "instagramDesc": "Visual art, photography, and creative projects"
     },
-    "stats": {
-      "listeners": "Monthly Listeners",
-      "followers": "Social Followers",
-      "releases": "Releases",
-      "collaborations": "Collaborations"
-    }
+    "ctaTitle": "Discover SpandiLand through f3dRaL",
+    "ctaText": "Experience the intersection of experimental hip hop, cutting-edge visuals, and boundless creativity. Join the journey through SpandiLand."
   },
   "presskit": {
     "title": "Press Kit",
@@ -159,7 +165,6 @@
     "filter": {
       "all": "All",
       "releases": "Releases",
-      "shows": "Shows",
       "merch": "Merch",
       "collabs": "Collaborations"
     }

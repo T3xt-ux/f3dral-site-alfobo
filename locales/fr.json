@@ -68,30 +68,36 @@
   },
   "about": {
     "title": "À propos",
-    "bio": "Biographie",
-    "theStory": "L'histoire",
-    "artisticThemes": "Thèmes artistiques",
-    "highlights": "Points forts",
-    "shortBio": "f3dRaL est un artiste et producteur avant-gardiste créant des expériences sonores immersives qui mélangent production de pointe et émotion brute. Connu pour ses morceaux qui défient les genres et son esthétique visuelle captivante.",
-    "longBio1": "Émergeant de la scène musicale underground, f3dRaL s'est taillé un espace unique où les sons expérimentaux rencontrent l'attrait grand public. Avec une formation en production musicale et en arts visuels, chaque sortie est une expérience multimédia soigneusement élaborée.",
-    "longBio2": "S'inspirant de genres divers incluant l'électronique, le hip-hop et la musique ambient, le son de f3dRaL évolue constamment tout en maintenant une signature sonore distinctive. Le travail de l'artiste a été présenté sur les principales plateformes de streaming et a attiré l'attention des critiques et des fans du monde entier.",
-    "longBio3": "Au-delà de la musique, f3dRaL s'engage à repousser les limites créatives à travers des collaborations avec des artistes visuels, des créateurs de mode et d'autres musiciens, créant une vision artistique holistique qui s'étend bien au-delà du studio.",
+    "tagline": "Artiste Hip Hop Expérimental • Parolier • Directeur Créatif",
+    "location": "SpandiLand",
+    "originTitle": "Les Débuts",
+    "origin": "f3dRaL Spandexx TeXTfuLL alias f3d est un artiste hip hop expérimental basé à SpandiLand. Son amour pour la musique s'est développé à un très jeune âge, et il a choisi la musique rap comme compartiment d'expression, écrire des poèmes était son activité quotidienne. Il était profondément fasciné par les chansons lyriques, alors il a commencé à freestyler.",
+    "journeyTitle": "Le Parcours",
+    "journey": "f3dRaL explore la musique à travers le réseautage, la production musicale (avec des beatmakers talentueux qui traversent les genres), la gestion d'événements et la direction artistique en tant que parolier. Il a travaillé avec plusieurs entités créatives et culturelles sur différents aspects de l'art, tels que la direction artistique, la promotion, le réseautage et l'image de marque pendant plus d'une décennie.",
+    "visionTitle": "La Vision",
+    "vision": "L'état d'esprit de f3dRaL se répercute à travers la production musicale accompagnée de visuels esthétiques, d'idées avant-gardistes, de réalité augmentée et de réalité virtuelle. Un créateur de tendances avec des bandes passantes infinies de créativité.",
+    "pillarsTitle": "Piliers Créatifs",
+    "pillars": {
+      "production": "Production Musicale",
+      "networking": "Réseautage",
+      "events": "Gestion d'Événements",
+      "direction": "Direction Artistique"
+    },
+    "themesTitle": "Éléments Artistiques",
     "themes": {
-      "innovation": "Innovation",
-      "emotion": "Émotion",
-      "technology": "Technologie",
-      "authenticity": "Authenticité"
+      "aestheticVisuals": "Visuels Esthétiques",
+      "avantGarde": "Idées Avant-Garde",
+      "augmentedReality": "Réalité Augmentée",
+      "virtualReality": "Réalité Virtuelle",
+      "trendsetter": "Créateur de Tendances",
+      "infiniteCreativity": "Créativité Infinie"
     },
     "socialFeeds": {
       "tiktokDesc": "Derniers clips, coulisses et contenu exclusif",
       "instagramDesc": "Art visuel, photographie et projets créatifs"
     },
-    "stats": {
-      "listeners": "Auditeurs mensuels",
-      "followers": "Abonnés sociaux",
-      "releases": "Sorties",
-      "collaborations": "Collaborations"
-    }
+    "ctaTitle": "Découvrez SpandiLand à travers f3dRaL",
+    "ctaText": "Vivez l'intersection du hip hop expérimental, des visuels de pointe et de la créativité sans limites. Rejoignez le voyage à travers SpandiLand."
   },
   "presskit": {
     "title": "Kit de presse",
@@ -159,7 +165,6 @@
     "filter": {
       "all": "Tout",
       "releases": "Sorties",
-      "shows": "Spectacles",
       "merch": "Marchandises",
       "collabs": "Collaborations"
     }

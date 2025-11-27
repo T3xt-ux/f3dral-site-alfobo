@@ -7,6 +7,7 @@ import { IconSymbol } from "@/components/IconSymbol";
 import { colors, commonStyles } from "@/styles/commonStyles";
 import { LinearGradient } from "expo-linear-gradient";
 import Animated, { FadeInDown, FadeIn } from "react-native-reanimated";
+import { t } from "@/utils/i18n";
 
 export default function AboutScreen() {
   const router = useRouter();
@@ -22,7 +23,7 @@ export default function AboutScreen() {
             color={colors.text}
           />
         </TouchableOpacity>
-        <Text style={styles.headerTitle}>About</Text>
+        <Text style={styles.headerTitle}>{t('about.title')}</Text>
         <View style={styles.headerSpacer} />
       </View>
 
@@ -34,7 +35,7 @@ export default function AboutScreen() {
         {/* Hero Image */}
         <Animated.View entering={FadeIn.duration(600)} style={styles.heroContainer}>
           <Image
-            source={{ uri: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800' }}
+            source={{ uri: 'https://images.unsplash.com/photo-1571330735066-03aaa9429d89?w=800' }}
             style={styles.heroImage}
           />
           <LinearGradient
@@ -45,50 +46,81 @@ export default function AboutScreen() {
 
         {/* Artist Name */}
         <Animated.View entering={FadeInDown.delay(200).duration(600)} style={styles.nameContainer}>
-          <Text style={styles.artistName}>f3dRaL</Text>
-          <Text style={styles.artistTagline}>Artist • Producer • Visionary</Text>
+          <Text style={styles.artistName}>f3dRaL Spandexx TeXTfuLL</Text>
+          <Text style={styles.artistAka}>a.k.a. f3d</Text>
+          <Text style={styles.artistTagline}>{t('about.tagline')}</Text>
+          <View style={styles.locationBadge}>
+            <Text style={styles.locationText}>📍 {t('about.location')}</Text>
+          </View>
         </Animated.View>
 
-        {/* Short Bio */}
+        {/* Origin Story */}
         <Animated.View entering={FadeInDown.delay(300).duration(600)} style={styles.section}>
-          <Text style={styles.sectionTitle}>Bio</Text>
+          <Text style={styles.sectionTitle}>{t('about.originTitle')}</Text>
           <View style={styles.bioCard}>
             <Text style={styles.bioText}>
-              f3dRaL is a boundary-pushing artist and producer creating immersive sonic 
-              experiences that blend cutting-edge production with raw emotion. Known for 
-              genre-defying tracks and captivating visual aesthetics.
+              {t('about.origin')}
             </Text>
           </View>
         </Animated.View>
 
-        {/* Long Bio */}
+        {/* Creative Journey */}
         <Animated.View entering={FadeInDown.delay(400).duration(600)} style={styles.section}>
-          <Text style={styles.sectionTitle}>The Story</Text>
+          <Text style={styles.sectionTitle}>{t('about.journeyTitle')}</Text>
           <View style={styles.bioCard}>
             <Text style={styles.bioText}>
-              Emerging from the underground music scene, f3dRaL has carved out a unique 
-              space where experimental sounds meet mainstream appeal. With a background 
-              in both music production and visual arts, every release is a carefully 
-              crafted multimedia experience.
-              {'\n\n'}
-              Drawing inspiration from diverse genres including electronic, hip-hop, and 
-              ambient music, f3dRaL&apos;s sound is constantly evolving while maintaining a 
-              distinctive sonic signature. The artist&apos;s work has been featured across 
-              major streaming platforms and has garnered attention from both critics and 
-              fans worldwide.
-              {'\n\n'}
-              Beyond music, f3dRaL is committed to pushing creative boundaries through 
-              collaborations with visual artists, fashion designers, and fellow musicians, 
-              creating a holistic artistic vision that extends far beyond the studio.
+              {t('about.journey')}
             </Text>
           </View>
         </Animated.View>
 
-        {/* Key Themes */}
+        {/* Vision & Innovation */}
         <Animated.View entering={FadeInDown.delay(500).duration(600)} style={styles.section}>
-          <Text style={styles.sectionTitle}>Artistic Themes</Text>
+          <Text style={styles.sectionTitle}>{t('about.visionTitle')}</Text>
+          <View style={styles.bioCard}>
+            <Text style={styles.bioText}>
+              {t('about.vision')}
+            </Text>
+          </View>
+        </Animated.View>
+
+        {/* Creative Pillars */}
+        <Animated.View entering={FadeInDown.delay(600).duration(600)} style={styles.section}>
+          <Text style={styles.sectionTitle}>{t('about.pillarsTitle')}</Text>
+          <View style={styles.pillarsContainer}>
+            {[
+              { icon: 'music.note', androidIcon: 'music-note', label: t('about.pillars.production') },
+              { icon: 'network', androidIcon: 'share', label: t('about.pillars.networking') },
+              { icon: 'calendar', androidIcon: 'event', label: t('about.pillars.events') },
+              { icon: 'paintbrush', androidIcon: 'palette', label: t('about.pillars.direction') },
+            ].map((pillar, index) => (
+              <React.Fragment key={index}>
+                <View style={styles.pillarCard}>
+                  <IconSymbol
+                    ios_icon_name={pillar.icon}
+                    android_material_icon_name={pillar.androidIcon}
+                    size={32}
+                    color={colors.primary}
+                  />
+                  <Text style={styles.pillarText}>{pillar.label}</Text>
+                </View>
+              </React.Fragment>
+            ))}
+          </View>
+        </Animated.View>
+
+        {/* Artistic Themes */}
+        <Animated.View entering={FadeInDown.delay(700).duration(600)} style={styles.section}>
+          <Text style={styles.sectionTitle}>{t('about.themesTitle')}</Text>
           <View style={styles.themesContainer}>
-            {['Innovation', 'Emotion', 'Technology', 'Authenticity'].map((theme, index) => (
+            {[
+              t('about.themes.aestheticVisuals'),
+              t('about.themes.avantGarde'),
+              t('about.themes.augmentedReality'),
+              t('about.themes.virtualReality'),
+              t('about.themes.trendsetter'),
+              t('about.themes.infiniteCreativity')
+            ].map((theme, index) => (
               <React.Fragment key={index}>
                 <View style={styles.themeTag}>
                   <Text style={styles.themeText}>{theme}</Text>
@@ -99,8 +131,8 @@ export default function AboutScreen() {
         </Animated.View>
 
         {/* Social Feeds */}
-        <Animated.View entering={FadeInDown.delay(600).duration(600)} style={styles.section}>
-          <Text style={styles.sectionTitle}>Follow</Text>
+        <Animated.View entering={FadeInDown.delay(800).duration(600)} style={styles.section}>
+          <Text style={styles.sectionTitle}>{t('common.follow')}</Text>
           
           <TouchableOpacity style={styles.socialFeedCard} activeOpacity={0.9}>
             <View style={styles.socialFeedHeader}>
@@ -122,7 +154,7 @@ export default function AboutScreen() {
               />
             </View>
             <Text style={styles.socialFeedDescription}>
-              Latest clips, behind-the-scenes, and exclusive content
+              {t('about.socialFeeds.tiktokDesc')}
             </Text>
           </TouchableOpacity>
 
@@ -146,31 +178,16 @@ export default function AboutScreen() {
               />
             </View>
             <Text style={styles.socialFeedDescription}>
-              Visual art, photography, and creative projects
+              {t('about.socialFeeds.instagramDesc')}
             </Text>
           </TouchableOpacity>
         </Animated.View>
 
-        {/* Stats */}
-        <Animated.View entering={FadeInDown.delay(700).duration(600)} style={styles.section}>
-          <Text style={styles.sectionTitle}>Highlights</Text>
-          <View style={styles.statsContainer}>
-            <View style={styles.statCard}>
-              <Text style={styles.statNumber}>50K+</Text>
-              <Text style={styles.statLabel}>Monthly Listeners</Text>
-            </View>
-            <View style={styles.statCard}>
-              <Text style={styles.statNumber}>100K+</Text>
-              <Text style={styles.statLabel}>Social Followers</Text>
-            </View>
-            <View style={styles.statCard}>
-              <Text style={styles.statNumber}>25+</Text>
-              <Text style={styles.statLabel}>Releases</Text>
-            </View>
-            <View style={styles.statCard}>
-              <Text style={styles.statNumber}>10+</Text>
-              <Text style={styles.statLabel}>Collaborations</Text>
-            </View>
+        {/* Call to Action */}
+        <Animated.View entering={FadeInDown.delay(900).duration(600)} style={styles.section}>
+          <View style={styles.ctaCard}>
+            <Text style={styles.ctaTitle}>{t('about.ctaTitle')}</Text>
+            <Text style={styles.ctaText}>{t('about.ctaText')}</Text>
           </View>
         </Animated.View>
 
@@ -229,16 +246,37 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   artistName: {
-    fontSize: 40,
+    fontSize: 32,
     fontWeight: '900',
     color: colors.text,
-    letterSpacing: 2,
+    letterSpacing: 1,
+    marginBottom: 4,
+    textAlign: 'center',
+  },
+  artistAka: {
+    fontSize: 18,
+    fontWeight: '600',
+    color: colors.textSecondary,
     marginBottom: 8,
   },
   artistTagline: {
     fontSize: 16,
     color: colors.textSecondary,
     letterSpacing: 1,
+    marginBottom: 12,
+  },
+  locationBadge: {
+    backgroundColor: colors.primary + '20',
+    paddingHorizontal: 16,
+    paddingVertical: 8,
+    borderRadius: 20,
+    borderWidth: 1,
+    borderColor: colors.primary,
+  },
+  locationText: {
+    fontSize: 14,
+    fontWeight: '600',
+    color: colors.text,
   },
   section: {
     paddingHorizontal: 20,
@@ -262,6 +300,27 @@ const styles = StyleSheet.create({
     color: colors.textSecondary,
     lineHeight: 24,
   },
+  pillarsContainer: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 12,
+  },
+  pillarCard: {
+    width: '48%',
+    backgroundColor: colors.card,
+    borderRadius: 16,
+    padding: 20,
+    alignItems: 'center',
+    borderWidth: 1,
+    borderColor: colors.highlight,
+  },
+  pillarText: {
+    fontSize: 14,
+    fontWeight: '600',
+    color: colors.text,
+    marginTop: 12,
+    textAlign: 'center',
+  },
   themesContainer: {
     flexDirection: 'row',
     flexWrap: 'wrap',
@@ -269,14 +328,14 @@ const styles = StyleSheet.create({
   },
   themeTag: {
     backgroundColor: colors.primary + '30',
-    paddingHorizontal: 20,
-    paddingVertical: 12,
+    paddingHorizontal: 16,
+    paddingVertical: 10,
     borderRadius: 20,
     borderWidth: 1,
     borderColor: colors.primary,
   },
   themeText: {
-    fontSize: 14,
+    fontSize: 13,
     fontWeight: '600',
     color: colors.text,
   },
@@ -312,30 +371,26 @@ const styles = StyleSheet.create({
     color: colors.textSecondary,
     lineHeight: 20,
   },
-  statsContainer: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: 12,
-  },
-  statCard: {
-    width: '48%',
-    backgroundColor: colors.card,
+  ctaCard: {
+    backgroundColor: colors.primary + '20',
     borderRadius: 16,
-    padding: 20,
+    padding: 24,
+    borderWidth: 2,
+    borderColor: colors.primary,
     alignItems: 'center',
-    borderWidth: 1,
-    borderColor: colors.highlight,
   },
-  statNumber: {
-    fontSize: 28,
-    fontWeight: '900',
-    color: colors.primary,
-    marginBottom: 4,
+  ctaTitle: {
+    fontSize: 20,
+    fontWeight: '700',
+    color: colors.text,
+    marginBottom: 8,
+    textAlign: 'center',
   },
-  statLabel: {
-    fontSize: 12,
+  ctaText: {
+    fontSize: 15,
     color: colors.textSecondary,
     textAlign: 'center',
+    lineHeight: 22,
   },
   bottomPadding: {
     height: 40,
